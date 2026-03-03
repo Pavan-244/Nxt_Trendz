@@ -91,38 +91,36 @@ class PaymentPopup extends Component {
     const isConfirmDisabled = selectedPayment !== 'cod'
 
     return (
-      <div className="popup-overlay" data-testid="popup-overlay">
-        <div className="popup-container">
-          <button
-            type="button"
-            className="popup-close-btn"
-            onClick={onClose}
-            data-testid="close-button"
-          >
-            &times;
-          </button>
-          {isOrderPlaced ? (
-            this.renderSuccessView()
-          ) : (
-            <>
-              <h1 className="popup-heading">Payment Details</h1>
-              <hr className="popup-separator" />
-              <h1 className="payment-section-heading">Payment Method</h1>
-              {this.renderPaymentOptions()}
-              <hr className="popup-separator" />
-              {this.renderOrderSummary()}
-              <hr className="popup-separator" />
-              <button
-                type="button"
-                className="confirm-order-btn"
-                disabled={isConfirmDisabled}
-                onClick={this.onConfirmOrder}
-              >
-                Confirm Order
-              </button>
-            </>
-          )}
-        </div>
+      <div className="popup-container">
+        <button
+          type="button"
+          className="popup-close-btn"
+          onClick={onClose}
+          data-testid="close-button"
+        >
+          &times;
+        </button>
+        {isOrderPlaced ? (
+          this.renderSuccessView()
+        ) : (
+          <>
+            <h1 className="popup-heading">Payment Details</h1>
+            <hr className="popup-separator" />
+            <h1 className="payment-section-heading">Payment Method</h1>
+            {this.renderPaymentOptions()}
+            <hr className="popup-separator" />
+            {this.renderOrderSummary()}
+            <hr className="popup-separator" />
+            <button
+              type="button"
+              className="confirm-order-btn"
+              disabled={isConfirmDisabled}
+              onClick={this.onConfirmOrder}
+            >
+              Confirm Order
+            </button>
+          </>
+        )}
       </div>
     )
   }
